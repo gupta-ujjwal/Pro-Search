@@ -87,7 +87,7 @@ def storeMatrix(matrix):
                 continue
     
 #Crawler       
-while(len(vis_links)<=100) :
+while(len(vis_links)<100) :
     if (links.empty()!=True) :
         link = links.get()
         print(len(vis_links))
@@ -128,23 +128,3 @@ while(len(vis_links)<=100) :
 
 generateMatrix()
 storeMatrix(matrix)
-
-    
-    
-#Query processing
-query = filterToken(input("Enter Query - ").lower().split(' '))
-
-doc = []
-
-n = len(dictonary)
-m = len(vis_links)
-for k in query:
-  for i in range(n):
-    if(matrix[i][0] == k):
-      for j in range(1,m):
-        if (matrix[i][j]>1) and vis_links[j] not in doc:
-          doc.append(vis_links[j])
-          
-print("The resulting url related to the searched query are")
-for i in doc:
-    print(i)
