@@ -4,7 +4,6 @@ import queue
 import math
 import string
 from collections import defaultdict
-import io
 from array import *
 import csv
 
@@ -32,6 +31,7 @@ def filterToken(tokens):
         if len(a)>0 and (a[len(a)-1] == '.' or a[len(a)-1] == ',' or a[len(a)-1] == '!' or a[len(a)-1] == '?') :
             tokens[tokens.index(a)]=a[0:len(a)-1]
             
+    tokens = [''.join([a for a in str if a.isalpha() or a.isdigit()]) for str in tokens if True]          
     tokens = [a for a in tokens if a.isalpha() and len(a)>0]
     return tokens
     
@@ -80,12 +80,15 @@ def storeMatrix(matrix):
     matrix.append(vis_links)
     with open(csvfile, "w") as output:
         writer = csv.writer(output, lineterminator='\n')
-        writer.writerows(matrix)
-   
-
+        for val in matrix:
+            try:
+                writer.writerow(val)  
+            except:
+                print(val[0])
+                continue
     
 #Crawler       
-while(len(vis_links)<=8000) :
+while(len(vis_links)<=100) :
     if (links.empty()!=True) :
         link = links.get()
         print(len(vis_links))
