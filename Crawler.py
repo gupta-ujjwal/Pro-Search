@@ -31,8 +31,7 @@ def filterToken(tokens):
         if len(a)>0 and (a[len(a)-1] == '.' or a[len(a)-1] == ',' or a[len(a)-1] == '!' or a[len(a)-1] == '?') :
             tokens[tokens.index(a)]=a[0:len(a)-1]
             
-    tokens = [''.join([a for a in str if a.isalpha() or a.isdigit()]) for str in tokens if True]          
-    tokens = [a for a in tokens if a.isalpha() and len(a)>0]
+    tokens = [''.join([a for a in str if a.isalpha() or a.isdigit()]) for str in tokens if len(str)>0]          
     return tokens
     
 def addToDict(tokens,url,text):
@@ -133,7 +132,7 @@ storeMatrix(matrix)
     
     
 #Query processing
-"""query = input("Enter Query - ").lower().split(' ')
+query = filterToken(input("Enter Query - ").lower().split(' '))
 
 doc = []
 
@@ -149,4 +148,3 @@ for k in query:
 print("The resulting url related to the searched query are")
 for i in doc:
     print(i)
-    """
