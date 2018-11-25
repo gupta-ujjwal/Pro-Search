@@ -41,7 +41,7 @@ def addToDict(tokens,url,text):
         obj = packet()
         rep = text.count(i)
         obj.url = url
-        obj.rep = rep
+        obj.rep = rep/len(text.split(' '))
         dictonary[i].append(obj)
  
 def generateMatrix():
@@ -66,14 +66,6 @@ def generateMatrix():
                 matrix[c][j]=0
                 
 def storeMatrix(matrix):
-    """with io.open('StackOverFlow.txt', "w", encoding="utf-8") as f:
-    f.write('Links:\n')
-    for i in range
-    for i in matrix:
-        line = ''
-        for j in i:
-            line = line+str(j)+'  '
-        f.write(line+'\n')"""
     csvfile = "StackOverflow.csv"
     global vis_links
     matrix.append(vis_links)
@@ -87,7 +79,7 @@ def storeMatrix(matrix):
                 continue
     
 #Crawler       
-while(len(vis_links)<100) :
+while(len(vis_links)<7000) :
     if (links.empty()!=True) :
         link = links.get()
         print(len(vis_links))

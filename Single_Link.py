@@ -33,3 +33,20 @@ toke=filterToken(text.split(' '))
 
 
 asw = set(vis_links)
+
+
+
+
+    n = len(ranking) 
+    # Traverse through all array elements
+    for i in range(n):
+ 
+        # Last i elements are already in place
+        for j in range(0, n-i-1):
+ 
+            # traverse the array from 0 to n-i-1
+            # Swap if the element found is greater
+            # than the next element
+            if ranking[j] < ranking[j+1] :
+                ranking[j], ranking[j+1] = ranking[j+1], ranking[j]
+                links[j], links[j+1] = links[j], links[j+1]
