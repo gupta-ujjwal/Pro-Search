@@ -570,7 +570,7 @@ legend {
 }
 
 @media screen and (max-width: 992px) {
-  .s01 form legend {
+/result  .s01 form legend {
     font-size: 50px;
     text-align: center;
     margin-bottom: 50px;
@@ -627,13 +627,24 @@ legend {
         </fieldset>
         <div class="inner-form">
           <div class="input-field first-wrap">
-            <input id="search" type="text" placeholder="What are you looking for?" name="query" class="form_input"/>
+            <input id="search" type="text" placeholder="Type your programming query " name="query" class="form_input"/>
           </div>
           <div class="input-field third-wrap">
-            <input type="submit" value="submit" class="btn-search" type="button">Search</button>
+            <!-- <input type="submit" value="submit" class="btn-search" type="button">Search</button> -->
+            <button class="btn-search" type="submit" value="submit">Search</button>
           </div>
         </div>
       </form>
     </div>
   </body>
 </html>
+
+<!-- <form class="form" action = "/result" method = "POST">
+  <div class="form__group">
+      <input type="text" placeholder="query" name="query" class="form__input" />
+  </div> -->
+
+  
+  <!-- <p><input type = "submit" value = "submit" /> </p> -->
+  <!-- <button class="btn" type="submit" value="submit">Find !!</button>
+</form> -->

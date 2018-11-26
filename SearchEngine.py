@@ -1,6 +1,7 @@
 import csv
 import math
 
+
 matrix = []
 doc = []
 links = []
@@ -44,11 +45,11 @@ def SearchEngine(query):
     readFile()
     n = len(matrix)
     vis_links = matrix[n-1]
-    matrix=matrix[0:n-1]
-    n = n-1
+    matrix=matrix[0:n-2]
+    n = n-2
     m = len(matrix[0])-1
     query = filterToken(query.lower().split(' '))
-    
+    doc=[]
     retrieveDocs(query,m,vis_links,n)
        
     queryArray = []
@@ -82,9 +83,6 @@ def SearchEngine(query):
                 
     links = [a for a in links if a[1]>0.08 and (not links[links.index(a)+1][1] == a[1] or links.index(a) == n-1 )]          
     
-    for i in links[0:50]:
-        print(i)
+    return links
+        
     
-    
-    
-SearchEngine('get latitude longitude from address in php')
