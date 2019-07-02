@@ -2,20 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Online Course Finder</title>
+    <title>Pro Search</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <style type="text/css">
+        body {
+             background: url("static/bg1.png");
+             background-size: cover;
+             background-position: center center;
+             padding: 15px;
+             height: 100vh;
+             color: white;
+        }
     </style>
   </head>
   <body>
-    <div class='container'>
-      <div class="heading">Search results for <b>{{query}} </b></div>
-      <hr><hr>
-      {% for item in result %}
-      <a href="{{item[0]}}">{{item[1]}}</a>
+    <div class='container' style="margin:20px;">
+      <div class="heading" style="font-size: 44px; margin-bottom:15px">Search results for <b>{{query}}. </b></div>
+      <hr>
       <br>
+      {% for item in result %}
+      <a href="{{item[0]}}" style="margin-bottom:30px; font-size: 26px">{{item[1]}}</a>
+      <br><br>
       {% endfor %}
     </div>
 

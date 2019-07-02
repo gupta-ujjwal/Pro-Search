@@ -29,8 +29,7 @@ class packet(object):
 def filterToken(tokens):
     for a in tokens:
         if len(a)>0 and (a[len(a)-1] == '.' or a[len(a)-1] == ',' or a[len(a)-1] == '!' or a[len(a)-1] == '?') :
-            tokens[tokens.index(a)]=a[0:len(a)-1]
-            
+            tokens[tokens.index(a)]=a[0:len(a)-1]        
     tokens = [''.join([a for a in str if a.isalpha() or a.isdigit()]) for str in tokens if len(str)>0]          
     return tokens
     
@@ -79,7 +78,7 @@ def storeMatrix(matrix):
                 continue
     
 #Crawler       
-while(len(vis_links)<7000) :
+while(len(vis_links)<10000) :
     if (links.empty()!=True) :
         link = links.get()
         print(len(vis_links))

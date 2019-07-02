@@ -17,7 +17,7 @@ def filterToken(tokens):
     
 def readFile():
     global matrix
-    with open('StackOverflow.csv', 'r') as csvFile:
+    with open('StackOverflow.csv', 'r',encoding = "ISO-8859-1") as csvFile:
         reader = csv.reader(csvFile)
         for row in reader:
             matrix.append(row)
@@ -39,10 +39,10 @@ def retrieveDocs(query,m,vis_links,n):
                         links.append([vis_links[j-1],0])
 
                         
-def SearchEngine(query):
+def SearchEngine(query,m):
     global matrix
     global doc,ranking,links
-    readFile()
+    matrix = m
     n = len(matrix)
     vis_links = matrix[n-1]
     matrix=matrix[0:n-2]
@@ -51,7 +51,7 @@ def SearchEngine(query):
     query = filterToken(query.lower().split(' '))
     doc=[]
     retrieveDocs(query,m,vis_links,n)
-       
+     
     queryArray = []
     queryAmp = 0
     for i in doc[0]:
@@ -84,5 +84,5 @@ def SearchEngine(query):
     links = [a for a in links if a[1]>0.08 and (not links[links.index(a)+1][1] == a[1] or links.index(a) == n-1 )]          
     
     return links
-        
-    
+
+SearchEngine('Java',readFile())
