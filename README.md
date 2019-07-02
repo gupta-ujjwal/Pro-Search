@@ -1,3 +1,3 @@
 # Web-Crawler
 
-A web crawler developed in python.
+A web crawler designed specially for Programmers.
